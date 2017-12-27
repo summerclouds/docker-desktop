@@ -13,7 +13,7 @@ import sys
 import subprocess
 import time
 
-APP = "ubuntu"
+APP = "docker"
 
 
 def parse_args(description):
@@ -26,8 +26,8 @@ def parse_args(description):
 
     parser.add_argument('-i', '--image',
                         help='The Docker image to use. ' +
-                        'The default is x11vnc/desktop.',
-                        default="x11vnc/desktop")
+                        'The default is x11vnc/docker-desktop.',
+                        default="x11vnc/docker-desktop")
 
     parser.add_argument('-t', '--tag',
                         help='Tag of the image. The default is latest. ' +
@@ -245,7 +245,8 @@ if __name__ == "__main__":
         except subprocess.CalledProcessError as e:
             sys.stderr.write(e.output.decode('utf-8'))
 
-    volumes = ["-v", pwd + ":" + docker_home + "/shared",
+    volumes = ["-v /var/run/docker.sock:/var/run/docker.sock",
+               "-v", pwd + ":" + docker_home + "/shared",
                "-v", APP + args.tag + "_config:" + docker_home + "/.config",
                "-v", homedir + "/.ssh" + ":" + docker_home + "/.ssh"]
 
