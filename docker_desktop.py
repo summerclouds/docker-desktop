@@ -36,7 +36,7 @@ def parse_args(description):
 
     parser.add_argument('-v', '--volume',
                         help='A data volume to be mounted to ~/project.',
-                        default="")
+                        default=APP+"-project")
 
     parser.add_argument('-p', '--pull',
                         help='Pull the latest Docker image. ' +
