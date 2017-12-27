@@ -26,7 +26,7 @@ RUN add-apt-repository ppa:webupd8team/atom && \
 ########################################################
 # Customize atom
 ########################################################
-RUN pip install -U 
+RUN pip install -U \
         autopep8 flake8 &&\
     apm install \
         language-docker \
