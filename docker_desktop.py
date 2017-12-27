@@ -245,7 +245,7 @@ if __name__ == "__main__":
         except subprocess.CalledProcessError as e:
             sys.stderr.write(e.output.decode('utf-8'))
 
-    volumes = ["-v /var/run/docker.sock:/var/run/docker.sock",
+    volumes = ["-v", "/var/run/docker.sock:/var/run/docker.sock",
                "-v", pwd + ":" + docker_home + "/shared",
                "-v", APP + args.tag + "_config:" + docker_home + "/.config",
                "-v", homedir + "/.ssh" + ":" + docker_home + "/.ssh"]
