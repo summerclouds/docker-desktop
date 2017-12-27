@@ -16,6 +16,7 @@ WORKDIR /tmp
 RUN add-apt-repository ppa:webupd8team/atom && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
+        atom \
         meld \
         docker.io && \
     apt-get -y autoremove && \
@@ -23,33 +24,22 @@ RUN add-apt-repository ppa:webupd8team/atom && \
 
 
 ########################################################
-# Customization for user
+# Customize atom
 ########################################################
-RUN apm install \
-        language-cpp14 \
-        language-matlab \
-        language-r \
-        language-fortran \
+RUN pip install -U 
+        autopep8 flake8 &&\
+    apm install \
         language-docker \
         autocomplete-python \
-        autocomplete-fortran \
         git-plus \
         merge-conflicts \
         split-diff \
-        gcc-make-run \
         platformio-ide-terminal \
         intentions \
         busy-signal \
         linter-ui-default \
         linter \
-        linter-gcc \
-        linter-gfortran \
         linter-flake8 \
-        dbg \
-        output-panel \
-        dbg-gdb \
-        python-debugger \
-        auto-detect-indentation \
         python-autopep8 \
         clang-format && \
     usermod -aG docker $DOCKER_USER && \
