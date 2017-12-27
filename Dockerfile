@@ -43,6 +43,7 @@ RUN pip install -U \
         python-autopep8 \
         clang-format && \
     usermod -aG docker $DOCKER_USER && \
+    usermod -aG staff $DOCKER_USER && \
     rm -rf /tmp/* && \
     echo '@atom .' >> $DOCKER_HOME/.config/lxsession/LXDE/autostart && \
     chown -R $DOCKER_USER:$DOCKER_GROUP $DOCKER_HOME
