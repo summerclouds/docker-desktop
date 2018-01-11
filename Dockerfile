@@ -16,10 +16,13 @@ WORKDIR /tmp
 RUN add-apt-repository ppa:webupd8team/atom && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
+        ruby \
+        ruby-dev \
         atom \
         meld \
         docker.io && \
     apt-get -y autoremove && \
+    gem install travis && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
