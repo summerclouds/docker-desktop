@@ -11,6 +11,7 @@ FROM x11vnc/desktop:17.10
 LABEL maintainer Xiangmin Jiao <xmjiao@gmail.com>
 
 WORKDIR /tmp
+ADD image/etc /etc
 
 # Install some required system tools and packages for X Windows
 RUN add-apt-repository ppa:webupd8team/atom && \
@@ -45,11 +46,9 @@ RUN pip install -U \
         linter-flake8 \
         python-autopep8 \
         clang-format && \
-    usermod -aG docker $DOCKER_USER && \
-    usermod -aG staff $DOCKER_USER && \
     rm -rf /tmp/* && \
     echo '@atom .' >> $DOCKER_HOME/.config/lxsession/LXDE/autostart && \
+    \
     chown -R $DOCKER_USER:$DOCKER_GROUP $DOCKER_HOME
-
 
 WORKDIR $DOCKER_HOME
