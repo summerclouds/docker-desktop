@@ -1,6 +1,7 @@
 os: linux
 language: python
 services: docker
+sudo: required
 
 before_script:
   - git clone --depth=1 https://$GIT_TOKEN@github.com/xmjiao/ci-util.git 2> /dev/null
