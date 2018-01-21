@@ -1,5 +1,7 @@
 #!/bin/bash
 
+[[ -e /var/run/docker.sock ]] || echo 0
+
 usermod -a -G docker $DOCKER_USER
 
 GROUP=$(ls -l /var/run/docker.sock | cut -f4 -d" ")
