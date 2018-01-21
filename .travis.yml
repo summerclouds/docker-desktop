@@ -8,4 +8,5 @@ before_script:
 
 script:
   - './ci-util/build-docker.sh : x11vnc/docker-desktop:latest,17.10,artful &&
+     ./docker_desktop.py -d -n && docker stop $(docker ps -q) &&
      ./ci-util/trigger-via-api.sh'
