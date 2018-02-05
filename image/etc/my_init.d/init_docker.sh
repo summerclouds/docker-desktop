@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[[ -e /var/run/docker.sock ]] || echo 0
+[[ -e /var/run/docker.sock ]] || exit 0
 
 usermod -a -G docker $DOCKER_USER
 
