@@ -19,6 +19,8 @@ RUN add-apt-repository ppa:webupd8team/atom && \
     apt-get install -y --no-install-recommends \
         automake \
         autoconf \
+        gettext \
+        libtool-bin \
         ruby \
         ruby-dev \
         atom \
