@@ -17,6 +17,7 @@ ADD image/etc /etc
 RUN add-apt-repository ppa:webupd8team/atom && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
+        autoconf \
         ruby \
         ruby-dev \
         atom \
