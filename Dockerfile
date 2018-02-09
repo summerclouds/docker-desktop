@@ -21,6 +21,7 @@ RUN add-apt-repository ppa:webupd8team/atom && \
         autoconf \
         gettext \
         libtool-bin \
+        libltdl-dev \
         ruby \
         ruby-dev \
         atom \
