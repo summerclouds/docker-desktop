@@ -13,6 +13,8 @@ LABEL maintainer Xiangmin Jiao <xmjiao@gmail.com>
 WORKDIR /tmp
 ADD image/etc /etc
 
+ARG DEBIAN_FRONTEND=noninteractive 
+
 # Install some required system tools and packages for X Windows
 RUN add-apt-repository ppa:webupd8team/atom && \
     apt-get update && \
