@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Atom
+Comment=
+Exec=/usr/bin/atom
+Icon=
+Path=/home/ubuntu
+Terminal=false
+StartupNotify=false

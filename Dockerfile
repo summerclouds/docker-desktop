@@ -16,8 +16,9 @@ ADD image/etc /etc
 ARG DEBIAN_FRONTEND=noninteractive 
 
 # Install some required system tools and packages for X Windows
-RUN add-apt-repository ppa:webupd8team/atom && \
-    apt-get update && \
+RUN apt install software-properties-common apt-transport-https wget && \
+    wget -q https://packagecloud.io/AtomEditor/atom/gpgkey -O- | sudo apt-key add - && \
+    add-apt-repository "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" && \
     apt-get install -y --no-install-recommends \
         automake \
         autoconf \
@@ -34,6 +35,8 @@ RUN add-apt-repository ppa:webupd8team/atom && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
+ADD image/home $DOCKER_HOME
+
 ########################################################
 # Customize atom
 ########################################################
@@ -45,7 +48,6 @@ RUN pip install -U \
         git-plus \
         merge-conflicts \
         split-diff \
-        platformio-ide-terminal \
         intentions \
         busy-signal \
         linter-ui-default \
@@ -54,7 +56,6 @@ RUN pip install -U \
         python-autopep8 \
         clang-format && \
     rm -rf /tmp/* && \
-    echo '@atom .' >> $DOCKER_HOME/.config/lxsession/LXDE/autostart && \
     \
     chown -R $DOCKER_USER:$DOCKER_GROUP $DOCKER_HOME
 
