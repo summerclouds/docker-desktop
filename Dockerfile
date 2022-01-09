@@ -7,7 +7,8 @@
 # Authors:
 # Xiangmin Jiao <xmjiao@gmail.com>
 
-FROM x11vnc/desktop:master
+#FROM x11vnc/desktop:master
+FROM x11vnc-desktop
 LABEL maintainer Xiangmin Jiao <xmjiao@gmail.com>
 
 WORKDIR /tmp
