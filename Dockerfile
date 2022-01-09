@@ -17,7 +17,8 @@ ADD image/etc /etc
 ARG DEBIAN_FRONTEND=noninteractive 
 
 # Install some required system tools and packages for X Windows
-RUN apt install software-properties-common apt-transport-https wget && \
+RUN apt-get update && \
+    apt-get install software-properties-common apt-transport-https wget && \
     wget -q https://packagecloud.io/AtomEditor/atom/gpgkey -O- | sudo apt-key add - && \
     add-apt-repository "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" && \
     apt-get install -y --no-install-recommends \
