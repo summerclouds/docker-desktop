@@ -7,8 +7,7 @@
 # Authors:
 # Xiangmin Jiao <xmjiao@gmail.com>
 
-#FROM x11vnc/desktop:master
-FROM x11vnc-desktop
+FROM x11vnc/desktop:22.04.00
 LABEL maintainer Xiangmin Jiao <xmjiao@gmail.com>
 
 WORKDIR /tmp
@@ -58,6 +57,7 @@ RUN pip install -U \
         python-autopep8 \
         clang-format && \
     rm -rf /tmp/* && \
+    echo '@atom .' >> $DOCKER_HOME/.config/lxsession/LXDE/autostart && \
     \
     chown -R $DOCKER_USER:$DOCKER_GROUP $DOCKER_HOME
 
